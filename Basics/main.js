@@ -192,15 +192,27 @@
 // console.log(arr2([1,2,3,4],double(2)))
 
 
-function mapToArray(arr,fun){
-    for(let key in arr){
-        arr[key] = fun(arr[key])
-        }
-        return arr;
-}
+// function mapToArray(arr,fun){
+//     for(let key in arr){
+//         arr[key] = fun(arr[key])
+//         }
+//         return arr;
+// }
 
 a = [1,2,3,4,5]
-console.log(mapToArray(a,(n) => n * 2))
+// console.log(mapToArray(a,(n) => n * 2))
+
+
+// Generator Object 
+function* gen(arr,fun){
+    for(let val of arr){
+        let result = fun(val);
+        yield result;
+    }
+}
+
+console.log(Array.from(gen(a,(n)=>n*3)),a);
+
  
  
 
